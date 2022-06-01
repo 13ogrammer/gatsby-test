@@ -1,7 +1,8 @@
 import * as React from 'react'
+import { GatsbyBrowser } from 'gatsby';
 import { DummyProvider } from './src/components/DummyProvider';
 
-export const wrapPageElement = ({ element, props }) => {
+export const wrapPageElement: GatsbyBrowser['wrapPageElement'] = ({ element, props }) => {
     return (
         <div>
             <div>Hello Page!</div>
@@ -10,7 +11,7 @@ export const wrapPageElement = ({ element, props }) => {
     )
 }
 
-export const wrapRootElement = ({ element }) => {
+export const wrapRootElement: GatsbyBrowser['wrapRootElement'] = ({ element }) => {
     return (
         <DummyProvider>
             <div>

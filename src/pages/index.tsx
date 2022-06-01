@@ -1,8 +1,9 @@
 import * as React from "react"
+import { FC } from 'react'
 import ChildPage from "../components/ChildPage";
 import { useDummy } from '../components/DummyProvider';
 
-const IndexPage = () => {
+const IndexPage: FC = () => {
   const { value, setValue } = useDummy()
 
   return (

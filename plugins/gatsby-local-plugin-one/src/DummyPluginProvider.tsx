@@ -1,9 +1,11 @@
 import * as React from 'react'
+import { FC, createContext, useContext, useState } from 'react'
 
-export const PluginDummyContext = React.createContext<{ value: boolean, setValue: (arg: boolean) => void } | null>(null)
+export const PluginDummyContext = createContext<{ value: boolean, setValue: (arg: boolean) => void } | null>(null)
 
-export const PluginDummyProvider: React.FC = ({ children }) => {
-    const [value, setValue] = React.useState(false)
+export const PluginDummyProvider: FC = ({ children }) => {
+    const [value, setValue] = useState(false)
+
     return <PluginDummyContext.Provider value={{ value, setValue }} >
         <div>Hello Plugin One Provider!</div>
         {children}
@@ -11,9 +13,11 @@ export const PluginDummyProvider: React.FC = ({ children }) => {
 }
 
 export const usePluginDummy = () => {
-    const state = React.useContext(PluginDummyContext) || false
+    const state = useContext(PluginDummyContext) || false
+
     if (!state) {
         throw new Error(`usePluginDummy must be used within a <PluginDummyProvider />`)
     }
+
     return state
 }

@@ -1,7 +1,8 @@
 import * as React from 'react'
+import { GatsbyBrowser } from 'gatsby';
 import { PluginDummyProvider } from './src/DummyPluginProvider'
 
-export const wrapPageElement = ({ element, props }) => {
+export const wrapPageElement: GatsbyBrowser['wrapPageElement'] = ({ element }) => {
     return (
         <>
             <div>
@@ -12,7 +13,7 @@ export const wrapPageElement = ({ element, props }) => {
     )
 }
 
-export const wrapRootElement = ({ element }) => {
+export const wrapRootElement: GatsbyBrowser['wrapRootElement'] = ({ element }) => {
     return (
         <PluginDummyProvider>
             <div>

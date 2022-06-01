@@ -1,4 +1,5 @@
 import * as React from "react"
+import { FC } from 'react'
 import { Link } from "gatsby"
 
 // styles
@@ -25,7 +26,7 @@ const codeStyles = {
 }
 
 // markup
-const NotFoundPage = () => {
+const NotFoundPage: FC = () => {
   return (
     <main style={pageStyles}>
       <title>Not found</title>
