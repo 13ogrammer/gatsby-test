@@ -1,3 +1,4 @@
+import { Link } from 'gatsby'
 import * as React from 'react'
 import { FC } from 'react'
 import ChildPage from '../components/ChildPage'
@@ -13,6 +14,10 @@ const IndexPage: FC = () => {
 
       <button onClick={() => setValue(!value)}>Change value</button>
       <ChildPage />
+
+      <p>
+        <Link to="/another">Another Page</Link>
+      </p>
     </div>
   )
 }

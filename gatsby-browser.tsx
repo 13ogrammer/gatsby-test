@@ -1,15 +1,16 @@
 import * as React from 'react'
 import { GatsbyBrowser } from 'gatsby'
 import { DummyProvider } from './src/components/DummyProvider'
+import Container from './src/components/Container'
 
 export const wrapPageElement: GatsbyBrowser['wrapPageElement'] = ({
-  element,
+  element
 }) => {
   return (
-    <div>
+    <Container>
       <div>Hello Page!</div>
       {element}
-    </div>
+    </Container>
   )
 }
 
@@ -18,10 +19,10 @@ export const wrapRootElement: GatsbyBrowser['wrapRootElement'] = ({
 }) => {
   return (
     <DummyProvider>
-      <div>
+      <Container>
         <div>Hello Root!</div>
         {element}
-      </div>
+      </Container>
     </DummyProvider>
   )
 }

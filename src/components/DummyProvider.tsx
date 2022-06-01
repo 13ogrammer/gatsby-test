@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { createContext, FC } from 'react'
+import { createContext, useContext, FC, useState } from 'react'
 
 export const DummyContext = createContext<{
   value: boolean
@@ -7,7 +7,7 @@ export const DummyContext = createContext<{
 } | null>(null)
 
 export const DummyProvider: FC = ({ children }) => {
-  const [value, setValue] = React.useState(false)
+  const [value, setValue] = useState(false)
 
   return (
     <DummyContext.Provider value={{ value, setValue }}>
@@ -18,7 +18,7 @@ export const DummyProvider: FC = ({ children }) => {
 }
 
 export const useDummy = () => {
-  const state = React.useContext(DummyContext)
+  const state = useContext(DummyContext)
 
   if (!state) {
     throw new Error(`useDummy must be used within a <DummyProvider />`)
